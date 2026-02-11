@@ -178,11 +178,18 @@ class LLM(ABC):
                 model="deepseek-chat",
                 temperature=self.temperature
             )
-        elif self.model_name == 'deepseek-v3-reason':
+        # elif self.model_name == 'deepseek-v3-reason':
+        #     self.llm = ChatOpenAI(
+        #         base_url=os.environ["DEEPSEEK_BASE_URL"],
+        #         api_key=os.environ["DEEPSEEK_API_KEY"],
+        #         model="deepseek-reasoner",
+        #         temperature=self.temperature
+        #     )
+        elif self.model_name == 'llama-4-scout':
             self.llm = ChatOpenAI(
-                base_url=os.environ["DEEPSEEK_BASE_URL"],
-                api_key=os.environ["DEEPSEEK_API_KEY"],
-                model="deepseek-reasoner",
+                base_url=os.environ["OPENAI_BASE_URL"],
+                api_key=os.environ["OPENAI_API_KEY"],
+                model="llama-4-scout",
                 temperature=self.temperature
             )
         elif self.model_name == 'gpt-4o':
