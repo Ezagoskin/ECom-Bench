@@ -173,16 +173,23 @@ class LLM(ABC):
             )
         elif self.model_name == 'deepseek-v3':
             self.llm = ChatOpenAI(
-                base_url=os.environ["OPENAI_BASE_URL"],
-                api_key=os.environ["OPENAI_API_KEY"],
+                base_url=os.environ["DEEPSEEK_BASE_URL"],
+                api_key=os.environ["DEEPSEEK_API_KEY"],
                 model="deepseek-chat",
                 temperature=self.temperature
             )
         elif self.model_name == 'gpt-4o':
             self.llm = ChatOpenAI(
-                base_url=os.environ["OPENAI_GPT_URL"],
-                api_key=os.environ["OPENAI_GPT_KEY"],
+                base_url=os.environ["OPENAI_BASE_URL"],
+                api_key=os.environ["OPENAI_API_KEY"],
                 model="gpt-4o",
+                temperature=self.temperature
+            )
+        elif self.model_name == 'gpt-5-mini':
+            self.llm = ChatOpenAI(
+                base_url=os.environ["OPENAI_BASE_URL"],
+                api_key=os.environ["OPENAI_API_KEY"],
+                model="gpt-5-mini",
                 temperature=self.temperature
             )
         # elif self.model_name == 'gpt-4o':
@@ -208,8 +215,8 @@ class LLM(ABC):
             )
         elif self.model_name == 'qwen':
             self.llm = ChatOpenAI(
-                base_url=os.environ["OPENAI_QWEN_URL"],
-                api_key=os.environ["OPENAI_QWEN_KEY"],
+                base_url=os.environ["OPENAI_BASE_URL"],
+                api_key=os.environ["OPENAI_API_KEY"],
                 model="qwen3-max",
                 temperature=self.temperature
             )
