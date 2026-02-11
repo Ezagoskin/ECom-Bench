@@ -201,9 +201,9 @@ class LLM(ABC):
             )
         elif self.model_name == 'qwen':
             self.llm = ChatOpenAI(
-                base_url=" ",
-                api_key=" ",
-                model=" ",
+                base_url=os.environ["OPENAI_QWEN_URL"],
+                api_key=os.environ["OPENAI_QWEN_KEY"],
+                model="qwen-max-latest",
                 temperature=self.temperature
             )
         elif self.model_name == 'kimi':
