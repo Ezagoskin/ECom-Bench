@@ -173,9 +173,9 @@ class LLM(ABC):
             )
         elif self.model_name == 'deepseek-v3':
             self.llm = ChatOpenAI(
-                base_url=" ",
-                api_key=" ",
-                model=" ",
+                base_url=os.environ["OPENAI_BASE_URL"],
+                api_key=os.environ["OPENAI_API_KEY"],
+                model="deepseek-chat",
                 temperature=self.temperature
             )
         elif self.model_name == 'gpt-4o':
