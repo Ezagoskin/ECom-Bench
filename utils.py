@@ -179,12 +179,19 @@ class LLM(ABC):
                 temperature=self.temperature
             )
         elif self.model_name == 'gpt-4o':
-            self.llm = AzureChatOpenAI(
-                azure_endpoint=" ",
-                azure_deployment=" ",
-                openai_api_version=" ",
+            self.llm = ChatOpenAI(
+                base_url=os.environ["OPENAI_GPT_URL"],
+                api_key=os.environ["OPENAI_GPT_KEY"],
+                model="gpt-4o",
                 temperature=self.temperature
             )
+        # elif self.model_name == 'gpt-4o':
+        #     self.llm = AzureChatOpenAI(
+        #         azure_endpoint=" ",
+        #         azure_deployment=" ",
+        #         openai_api_version=" ",
+        #         temperature=self.temperature
+        #     )
         elif self.model_name == 'gpt-35':
             self.llm = AzureChatOpenAI(
                 azure_endpoint=" ",
