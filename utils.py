@@ -203,7 +203,7 @@ class LLM(ABC):
             self.llm = ChatOpenAI(
                 base_url=os.environ["OPENAI_QWEN_URL"],
                 api_key=os.environ["OPENAI_QWEN_KEY"],
-                model="qwen-max-latest",
+                model="qwen3-max",
                 temperature=self.temperature
             )
         elif self.model_name == 'kimi':
